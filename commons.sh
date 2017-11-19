@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function connectVPN() {
-	osascript -e "tell application \"Tunnelblick\"" -e "connect \"docker-for-mac\"" -e "end tell"
+	osascript -e "tell application \"Tunnelblick\"" -e "connect \"docker-for-mac\"" -e "end tell" &> /dev/null
 }
 
 function disconnectVPN() {
-	osascript -e "tell application \"Tunnelblick\"" -e "disconnect \"docker-for-mac\"" -e "end tell"
+ 	osascript -e "tell application \"Tunnelblick\"" -e "disconnect \"docker-for-mac\"" -e "end tell" &> /dev/null
 }
 
 function startupContainer() {
@@ -13,7 +13,7 @@ function startupContainer() {
 }
 
 function shutdownContainer() {
-	docker ps -f name="dockermacnetwork_proxy_1" -f name="dockermacnetwork_openvpn_1" -q | xargs docker rm -f
+	docker ps -f name="dockermacnetwork_proxy_1" -f name="dockermacnetwork_openvpn_1" -q | xargs docker rm -f &> /dev/null
 }
 
 function startTPCListenHack() {
@@ -21,7 +21,7 @@ function startTPCListenHack() {
 }
 
 function stopTPCListenHack() {
-	ps aux | grep "socat TCP-LISTEN:2375" | cut -d ' ' -f2 | xargs kill -9
+	ps aux | grep "socat TCP-LISTEN:2375" | cut -d ' ' -f2 | xargs kill -9 &> /dev/null
 }
 
 function sleepFor() {

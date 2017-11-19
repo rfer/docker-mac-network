@@ -2,17 +2,21 @@
 
 source commons.sh
 
-echo "Starting VPN and Proxy containers..."
+echo "1 - Starting VPN and Proxy containers..."
 startupContainer
 
-echo "Waiting 5 secods for containers to be fully functional..."
+echo ""
+echo "2 - Waiting 5 secs for the containers to be fully functional..."
 sleepFor 5
 
-echo "Exposing port 2375 for Docker remote API access using socat..."
+echo ""
+echo "3 - Exposing port 2375 for Docker remote API access using socat..."
 startTPCListenHack
 
-echo "Connecting to the VPN from Tunnelblick..."
+echo ""
+echo "4 - Connecting to the VPN from Tunnelblick..."
 connectVPN
 
-echo "Done. Just make sure Tunnelblick has successfully connected to the VPN and you're good to go!"
+echo ""
+echo "5 - Done! Just make sure Tunnelblick has successfully connected to the VPN and you're good to go!"
 

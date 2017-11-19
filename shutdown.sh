@@ -2,10 +2,16 @@
 
 source commons.sh
 
-echo "Disconnecting Tunnelblick from the VPN..."
+echo "1 - Disconnecting Tunnelblick from the VPN..."
 disconnectVPN
-echo "Stopping VPN and Proxy containers..."
+
+echo ""
+echo "2 - Stopping VPN and Proxy containers..."
 shutdownContainer
-echo "Killing socat"
+
+echo ""
+echo "3 - Killing socat..."
 stopTPCListenHack
-echo "Done! You're free!"
+
+echo ""
+echo "4 - Done! You're free, go out and see the world, child."
