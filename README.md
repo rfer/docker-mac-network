@@ -12,6 +12,13 @@ To access your Docker networks:
 
 You will now be able to access the internal Docker networks from macOS.
 
+## Starting and Stopping
+
+A couple of utility scripts are included to start and stop everything needed. You'll need to run them every time you restart Docker.
+
+* Run `startup.sh` to start the VPN and Proxy containers, connect to the VPN and start socat to expose port 2375.
+* Run `shutdown.sh` to remove the containers, disconnect from the VPN and stop socat.
+
 
 ## Implementation notes
 
