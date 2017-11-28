@@ -13,6 +13,7 @@ function startupContainer() {
 }
 
 function shutdownContainer() {
+  docker-compose stop
 	docker ps -f name="dockermacnetwork_proxy_1" -f name="dockermacnetwork_openvpn_1" -q | xargs docker rm -f &> /dev/null
 }
 
@@ -42,3 +43,5 @@ function spin() {
         printf "%s\b" "${sp:i++%n:1}"
     done
 }
+
+
