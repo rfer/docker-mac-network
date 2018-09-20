@@ -26,3 +26,11 @@ services:
         command: /local/helpers/run.sh
         restart: always
 
+    docker_api:
+        build: .
+        ports:
+            - "127.0.0.1:2375:2375"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        command: TCP-LISTEN:2375,fork UNIX-CONNECT:/var/run/docker.sock
+        restart: always

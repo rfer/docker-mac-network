@@ -8,21 +8,13 @@ function disconnectVPN() {
  	osascript -e "tell application \"Tunnelblick\"" -e "disconnect \"docker-for-mac\"" -e "end tell" &> /dev/null
 }
 
-function startupContainer() {
+function startupContainers() {
 	docker-compose up -d
 }
 
-function shutdownContainer() {
+function shutdownContainers() {
   docker-compose stop
 	docker ps -f name="dockermacnetwork_proxy_1" -f name="dockermacnetwork_openvpn_1" -q | xargs docker rm -f &> /dev/null
-}
-
-function startTPCListenHack() {
-	socat TCP-LISTEN:2375,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
-}
-
-function stopTPCListenHack() {
-	ps aux | grep "socat TCP-LISTEN:2375" | cut -d ' ' -f2 | xargs kill -9 &> /dev/null
 }
 
 function sleepFor() {

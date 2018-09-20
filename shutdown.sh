@@ -7,11 +7,7 @@ disconnectVPN
 
 echo ""
 echo "2 - Stopping VPN and Proxy containers..."
-shutdownContainer
+shutdownContainers
 
 echo ""
-echo "3 - Killing socat..."
-stopTPCListenHack
-
-echo ""
-echo "4 - Done! You're free, go out and see the world, child."
+echo "3 - Done! You're free, go out and see the world, child."
