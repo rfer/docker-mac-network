@@ -11,8 +11,8 @@ if [ ! -f "/local/$dest" ]; then
     echo localhost | ovpn_initpki nopass
     easyrsa build-client-full host nopass
     ovpn_getclient host | sed '
-    	s|localhost 1194|localhost 13194|;
-	s|redirect-gateway.*|route 172.17.0.0 255.255.0.0|;
+        s|localhost 1194|localhost 13194|;
+        s|redirect-gateway.*|route 172.16.0.0 255.252.0.0|;
     ' > "/local/$dest"
 fi
 
